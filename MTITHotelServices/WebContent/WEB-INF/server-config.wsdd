@@ -1,0 +1,106 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\Bevan\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MTITHotelServices\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="CustomerServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="checkTheCutomerBill" qname="ns1:checkTheCutomerBill" returnQName="ns1:checkTheCutomerBillReturn" returnType="ns2:Customer" soapAction="" xmlns:ns1="http://service.group.mtit.com" xmlns:ns2="http://beans.group.mtit.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns3:operation>
+  <ns1:operation name="getallEmployeedetails" qname="ns3:getallEmployeedetails" returnQName="ns3:getallEmployeedetailsReturn" returnType="ns4:Employee" soapAction="" xmlns:ns3="http://service.group.mtit.com" xmlns:ns4="http://beans.group.mtit.com"/>
+  <ns1:operation name="checktheEmployeePayout" qname="ns5:checktheEmployeePayout" returnQName="ns5:checktheEmployeePayoutReturn" returnType="ns6:Employee" soapAction="" xmlns:ns5="http://service.group.mtit.com" xmlns:ns6="http://beans.group.mtit.com">
+   <ns1:parameter qname="ns5:eid" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="removepoolbooking" qname="ns7:removepoolbooking" returnQName="ns7:removepoolbookingReturn" returnType="xsd:boolean" soapAction="" xmlns:ns7="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:pid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getallCustomerdetails" qname="ns8:getallCustomerdetails" returnQName="ns8:getallCustomerdetailsReturn" returnType="ns9:Customer" soapAction="" xmlns:ns8="http://service.group.mtit.com" xmlns:ns9="http://beans.group.mtit.com"/>
+  <ns1:operation name="removeCutomer" qname="ns10:removeCutomer" returnQName="ns10:removeCutomerReturn" returnType="xsd:boolean" soapAction="" xmlns:ns10="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="addCutomer" qname="ns11:addCutomer" returnQName="ns11:addCutomerReturn" returnType="xsd:boolean" soapAction="" xmlns:ns11="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:c" type="ns12:Customer" xmlns:ns12="http://beans.group.mtit.com"/>
+  </ns1:operation>
+  <ns1:operation name="addEmployee" qname="ns13:addEmployee" returnQName="ns13:addEmployeeReturn" returnType="xsd:boolean" soapAction="" xmlns:ns13="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:e" type="ns14:Employee" xmlns:ns14="http://beans.group.mtit.com"/>
+  </ns1:operation>
+  <ns1:operation name="removeEmployee" qname="ns15:removeEmployee" returnQName="ns15:removeEmployeeReturn" returnType="xsd:boolean" soapAction="" xmlns:ns15="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="addleavecard" qname="ns16:addleavecard" returnQName="ns16:addleavecardReturn" returnType="xsd:boolean" soapAction="" xmlns:ns16="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:a" type="ns17:Applyleaves" xmlns:ns17="http://beans.group.mtit.com"/>
+  </ns1:operation>
+  <ns1:operation name="seeleavecrad" qname="ns18:seeleavecrad" returnQName="ns18:seeleavecradReturn" returnType="ns19:Applyleaves" soapAction="" xmlns:ns18="http://service.group.mtit.com" xmlns:ns19="http://beans.group.mtit.com">
+   <ns1:parameter qname="ns18:leid" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="seeallleavecard" qname="ns20:seeallleavecard" returnQName="ns20:seeallleavecardReturn" returnType="ns21:Applyleaves" soapAction="" xmlns:ns20="http://service.group.mtit.com" xmlns:ns21="http://beans.group.mtit.com"/>
+  <ns1:operation name="removeleaveCard" qname="ns22:removeleaveCard" returnQName="ns22:removeleaveCardReturn" returnType="xsd:boolean" soapAction="" xmlns:ns22="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns22:leid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="seepoolbooking" qname="ns23:seepoolbooking" returnQName="ns23:seepoolbookingReturn" returnType="ns24:PoolUsage" soapAction="" xmlns:ns23="http://service.group.mtit.com" xmlns:ns24="http://beans.group.mtit.com">
+   <ns1:parameter qname="ns23:pid" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="seeallpoolusage" qname="ns25:seeallpoolusage" returnQName="ns25:seeallpoolusageReturn" returnType="ns26:PoolUsage" soapAction="" xmlns:ns25="http://service.group.mtit.com" xmlns:ns26="http://beans.group.mtit.com"/>
+  <ns1:operation name="addpoolbooking" qname="ns27:addpoolbooking" returnQName="ns27:addpoolbookingReturn" returnType="xsd:boolean" soapAction="" xmlns:ns27="http://service.group.mtit.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns27:p" type="ns28:PoolUsage" xmlns:ns28="http://beans.group.mtit.com"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="removeCutomer removeleaveCard addleavecard addCutomer removeEmployee seeallleavecard checktheEmployeePayout getallEmployeedetails checkTheCutomerBill addpoolbooking seeallpoolusage removepoolbooking seeleavecrad getallCustomerdetails addEmployee seepoolbooking"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="CustomerServiceImpl"/>
+  <ns1:parameter name="className" value="com.mtit.group.service.CustomerServiceImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="CustomerServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://beans.group.mtit.com,http://service.group.mtit.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.group.mtit.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="CustomerServiceImplService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns29:Employee" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.mtit.group.beans.Employee" xmlns:ns29="http://beans.group.mtit.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns30:Applyleaves" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.mtit.group.beans.Applyleaves" xmlns:ns30="http://beans.group.mtit.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns31:Customer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.mtit.group.beans.Customer" xmlns:ns31="http://beans.group.mtit.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns32:PoolUsage" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.mtit.group.beans.PoolUsage" xmlns:ns32="http://beans.group.mtit.com"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

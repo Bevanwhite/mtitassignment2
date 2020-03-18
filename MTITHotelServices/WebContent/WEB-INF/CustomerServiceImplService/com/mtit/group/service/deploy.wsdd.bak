@@ -1,0 +1,102 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerServiceImplService WSDL service -->
+
+  <service name="CustomerServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.group.mtit.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerServiceImplService"/>
+      <parameter name="schemaQualified" value="http://beans.group.mtit.com,http://service.group.mtit.com"/>
+      <parameter name="wsdlServicePort" value="CustomerServiceImpl"/>
+      <parameter name="className" value="com.mtit.group.service.CustomerServiceImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CustomerServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="checkTheCutomerBill" qname="operNS:checkTheCutomerBill" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:checkTheCutomerBillReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Customer" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getallEmployeedetails" qname="operNS:getallEmployeedetails" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:getallEmployeedetailsReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Employee" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+      </operation>
+      <operation name="checktheEmployeePayout" qname="operNS:checktheEmployeePayout" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:checktheEmployeePayoutReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Employee" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+        <parameter qname="pns:eid" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="removepoolbooking" qname="operNS:removepoolbooking" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:removepoolbookingReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:pid" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getallCustomerdetails" qname="operNS:getallCustomerdetails" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:getallCustomerdetailsReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Customer" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+      </operation>
+      <operation name="removeCutomer" qname="operNS:removeCutomer" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:removeCutomerReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addCutomer" qname="operNS:addCutomer" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:addCutomerReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:c" xmlns:pns="http://service.group.mtit.com" type="tns:Customer" xmlns:tns="http://beans.group.mtit.com"/>
+      </operation>
+      <operation name="addEmployee" qname="operNS:addEmployee" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:addEmployeeReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:e" xmlns:pns="http://service.group.mtit.com" type="tns:Employee" xmlns:tns="http://beans.group.mtit.com"/>
+      </operation>
+      <operation name="removeEmployee" qname="operNS:removeEmployee" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:removeEmployeeReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addleavecard" qname="operNS:addleavecard" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:addleavecardReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://service.group.mtit.com" type="tns:Applyleaves" xmlns:tns="http://beans.group.mtit.com"/>
+      </operation>
+      <operation name="seeleavecrad" qname="operNS:seeleavecrad" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:seeleavecradReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Applyleaves" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+        <parameter qname="pns:leid" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="seeallleavecard" qname="operNS:seeallleavecard" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:seeallleavecardReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:Applyleaves" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+      </operation>
+      <operation name="removeleaveCard" qname="operNS:removeleaveCard" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:removeleaveCardReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:leid" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="seepoolbooking" qname="operNS:seepoolbooking" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:seepoolbookingReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:PoolUsage" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+        <parameter qname="pns:pid" xmlns:pns="http://service.group.mtit.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="seeallpoolusage" qname="operNS:seeallpoolusage" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:seeallpoolusageReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:PoolUsage" xmlns:rtns="http://beans.group.mtit.com" soapAction="" >
+      </operation>
+      <operation name="addpoolbooking" qname="operNS:addpoolbooking" xmlns:operNS="http://service.group.mtit.com" returnQName="retNS:addpoolbookingReturn" xmlns:retNS="http://service.group.mtit.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:p" xmlns:pns="http://service.group.mtit.com" type="tns:PoolUsage" xmlns:tns="http://beans.group.mtit.com"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeCutomer removeleaveCard addleavecard addCutomer removeEmployee seeallleavecard checktheEmployeePayout getallEmployeedetails checkTheCutomerBill addpoolbooking seeallpoolusage removepoolbooking seeleavecrad getallCustomerdetails addEmployee seepoolbooking"/>
+
+      <typeMapping
+        xmlns:ns="http://beans.group.mtit.com"
+        qname="ns:Employee"
+        type="java:com.mtit.group.beans.Employee"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.group.mtit.com"
+        qname="ns:Applyleaves"
+        type="java:com.mtit.group.beans.Applyleaves"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.group.mtit.com"
+        qname="ns:Customer"
+        type="java:com.mtit.group.beans.Customer"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://beans.group.mtit.com"
+        qname="ns:PoolUsage"
+        type="java:com.mtit.group.beans.PoolUsage"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

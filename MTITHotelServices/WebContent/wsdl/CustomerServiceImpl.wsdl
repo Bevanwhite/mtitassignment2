@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.group.mtit.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.group.mtit.com" xmlns:intf="http://service.group.mtit.com" xmlns:tns1="http://beans.group.mtit.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.group.mtit.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://beans.group.mtit.com"/>
+   <element name="checkTheCutomerBill">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkTheCutomerBillResponse">
+    <complexType>
+     <sequence>
+      <element name="checkTheCutomerBillReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getallEmployeedetails">
+    <complexType/>
+   </element>
+   <element name="getallEmployeedetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getallEmployeedetailsReturn" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checktheEmployeePayout">
+    <complexType>
+     <sequence>
+      <element name="eid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checktheEmployeePayoutResponse">
+    <complexType>
+     <sequence>
+      <element name="checktheEmployeePayoutReturn" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removepoolbooking">
+    <complexType>
+     <sequence>
+      <element name="pid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removepoolbookingResponse">
+    <complexType>
+     <sequence>
+      <element name="removepoolbookingReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getallCustomerdetails">
+    <complexType/>
+   </element>
+   <element name="getallCustomerdetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getallCustomerdetailsReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCutomer">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCutomerResponse">
+    <complexType>
+     <sequence>
+      <element name="removeCutomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCutomer">
+    <complexType>
+     <sequence>
+      <element name="c" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCutomerResponse">
+    <complexType>
+     <sequence>
+      <element name="addCutomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addEmployee">
+    <complexType>
+     <sequence>
+      <element name="e" type="tns1:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="addEmployeeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeEmployee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeEmployeeResponse">
+    <complexType>
+     <sequence>
+      <element name="removeEmployeeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addleavecard">
+    <complexType>
+     <sequence>
+      <element name="a" type="tns1:Applyleaves"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addleavecardResponse">
+    <complexType>
+     <sequence>
+      <element name="addleavecardReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeleavecrad">
+    <complexType>
+     <sequence>
+      <element name="leid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeleavecradResponse">
+    <complexType>
+     <sequence>
+      <element name="seeleavecradReturn" type="tns1:Applyleaves"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeallleavecard">
+    <complexType/>
+   </element>
+   <element name="seeallleavecardResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="seeallleavecardReturn" type="tns1:Applyleaves"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeleaveCard">
+    <complexType>
+     <sequence>
+      <element name="leid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeleaveCardResponse">
+    <complexType>
+     <sequence>
+      <element name="removeleaveCardReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seepoolbooking">
+    <complexType>
+     <sequence>
+      <element name="pid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seepoolbookingResponse">
+    <complexType>
+     <sequence>
+      <element name="seepoolbookingReturn" type="tns1:PoolUsage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeallpoolusage">
+    <complexType/>
+   </element>
+   <element name="seeallpoolusageResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="seeallpoolusageReturn" type="tns1:PoolUsage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addpoolbooking">
+    <complexType>
+     <sequence>
+      <element name="p" type="tns1:PoolUsage"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addpoolbookingResponse">
+    <complexType>
+     <sequence>
+      <element name="addpoolbookingReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://beans.group.mtit.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Customer">
+    <sequence>
+     <element name="age" type="xsd:int"/>
+     <element name="amount" type="xsd:double"/>
+     <element name="cid" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="numberOfDays" type="xsd:int"/>
+     <element name="numberOfPeople" type="xsd:int"/>
+     <element name="roomNumber" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Employee">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="age" type="xsd:int"/>
+     <element name="amountperhour" type="xsd:float"/>
+     <element name="eid" type="xsd:int"/>
+     <element name="marriageStatus" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="workinghoursperday" type="xsd:float"/>
+    </sequence>
+   </complexType>
+   <complexType name="Applyleaves">
+    <sequence>
+     <element name="date" nillable="true" type="xsd:string"/>
+     <element name="eid" type="xsd:int"/>
+     <element name="laid" type="xsd:int"/>
+     <element name="reason" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="PoolUsage">
+    <sequence>
+     <element name="day" nillable="true" type="xsd:string"/>
+     <element name="hours" type="xsd:int"/>
+     <element name="pid" type="xsd:int"/>
+     <element name="reasontobook" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="seeleavecradResponse">
+
+      <wsdl:part element="impl:seeleavecradResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getallEmployeedetailsRequest">
+
+      <wsdl:part element="impl:getallEmployeedetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removepoolbookingResponse">
+
+      <wsdl:part element="impl:removepoolbookingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seepoolbookingResponse">
+
+      <wsdl:part element="impl:seepoolbookingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addleavecardResponse">
+
+      <wsdl:part element="impl:addleavecardResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeleaveCardRequest">
+
+      <wsdl:part element="impl:removeleaveCard" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeleavecradRequest">
+
+      <wsdl:part element="impl:seeleavecrad" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeEmployeeResponse">
+
+      <wsdl:part element="impl:removeEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeallleavecardRequest">
+
+      <wsdl:part element="impl:seeallleavecard" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addpoolbookingResponse">
+
+      <wsdl:part element="impl:addpoolbookingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addEmployeeRequest">
+
+      <wsdl:part element="impl:addEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addEmployeeResponse">
+
+      <wsdl:part element="impl:addEmployeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removepoolbookingRequest">
+
+      <wsdl:part element="impl:removepoolbooking" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getallCustomerdetailsRequest">
+
+      <wsdl:part element="impl:getallCustomerdetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checktheEmployeePayoutRequest">
+
+      <wsdl:part element="impl:checktheEmployeePayout" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeallleavecardResponse">
+
+      <wsdl:part element="impl:seeallleavecardResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCutomerResponse">
+
+      <wsdl:part element="impl:addCutomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCutomerResponse">
+
+      <wsdl:part element="impl:removeCutomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getallEmployeedetailsResponse">
+
+      <wsdl:part element="impl:getallEmployeedetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCutomerRequest">
+
+      <wsdl:part element="impl:addCutomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addpoolbookingRequest">
+
+      <wsdl:part element="impl:addpoolbooking" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeallpoolusageRequest">
+
+      <wsdl:part element="impl:seeallpoolusage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeleaveCardResponse">
+
+      <wsdl:part element="impl:removeleaveCardResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeEmployeeRequest">
+
+      <wsdl:part element="impl:removeEmployee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checktheEmployeePayoutResponse">
+
+      <wsdl:part element="impl:checktheEmployeePayoutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seepoolbookingRequest">
+
+      <wsdl:part element="impl:seepoolbooking" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addleavecardRequest">
+
+      <wsdl:part element="impl:addleavecard" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getallCustomerdetailsResponse">
+
+      <wsdl:part element="impl:getallCustomerdetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeallpoolusageResponse">
+
+      <wsdl:part element="impl:seeallpoolusageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkTheCutomerBillRequest">
+
+      <wsdl:part element="impl:checkTheCutomerBill" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCutomerRequest">
+
+      <wsdl:part element="impl:removeCutomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkTheCutomerBillResponse">
+
+      <wsdl:part element="impl:checkTheCutomerBillResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CustomerServiceImpl">
+
+      <wsdl:operation name="checkTheCutomerBill">
+
+         <wsdl:input message="impl:checkTheCutomerBillRequest" name="checkTheCutomerBillRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkTheCutomerBillResponse" name="checkTheCutomerBillResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getallEmployeedetails">
+
+         <wsdl:input message="impl:getallEmployeedetailsRequest" name="getallEmployeedetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getallEmployeedetailsResponse" name="getallEmployeedetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checktheEmployeePayout">
+
+         <wsdl:input message="impl:checktheEmployeePayoutRequest" name="checktheEmployeePayoutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checktheEmployeePayoutResponse" name="checktheEmployeePayoutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removepoolbooking">
+
+         <wsdl:input message="impl:removepoolbookingRequest" name="removepoolbookingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removepoolbookingResponse" name="removepoolbookingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getallCustomerdetails">
+
+         <wsdl:input message="impl:getallCustomerdetailsRequest" name="getallCustomerdetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getallCustomerdetailsResponse" name="getallCustomerdetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCutomer">
+
+         <wsdl:input message="impl:removeCutomerRequest" name="removeCutomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeCutomerResponse" name="removeCutomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCutomer">
+
+         <wsdl:input message="impl:addCutomerRequest" name="addCutomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addCutomerResponse" name="addCutomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addEmployee">
+
+         <wsdl:input message="impl:addEmployeeRequest" name="addEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addEmployeeResponse" name="addEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeEmployee">
+
+         <wsdl:input message="impl:removeEmployeeRequest" name="removeEmployeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeEmployeeResponse" name="removeEmployeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addleavecard">
+
+         <wsdl:input message="impl:addleavecardRequest" name="addleavecardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addleavecardResponse" name="addleavecardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeleavecrad">
+
+         <wsdl:input message="impl:seeleavecradRequest" name="seeleavecradRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seeleavecradResponse" name="seeleavecradResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeallleavecard">
+
+         <wsdl:input message="impl:seeallleavecardRequest" name="seeallleavecardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seeallleavecardResponse" name="seeallleavecardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeleaveCard">
+
+         <wsdl:input message="impl:removeleaveCardRequest" name="removeleaveCardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeleaveCardResponse" name="removeleaveCardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seepoolbooking">
+
+         <wsdl:input message="impl:seepoolbookingRequest" name="seepoolbookingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seepoolbookingResponse" name="seepoolbookingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeallpoolusage">
+
+         <wsdl:input message="impl:seeallpoolusageRequest" name="seeallpoolusageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seeallpoolusageResponse" name="seeallpoolusageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addpoolbooking">
+
+         <wsdl:input message="impl:addpoolbookingRequest" name="addpoolbookingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addpoolbookingResponse" name="addpoolbookingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CustomerServiceImplSoapBinding" type="impl:CustomerServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="checkTheCutomerBill">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkTheCutomerBillRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkTheCutomerBillResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getallEmployeedetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getallEmployeedetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getallEmployeedetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checktheEmployeePayout">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checktheEmployeePayoutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checktheEmployeePayoutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removepoolbooking">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removepoolbookingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removepoolbookingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getallCustomerdetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getallCustomerdetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getallCustomerdetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCutomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCutomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCutomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCutomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCutomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCutomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addleavecard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addleavecardRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addleavecardResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeleavecrad">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seeleavecradRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seeleavecradResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeallleavecard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seeallleavecardRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seeallleavecardResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeleaveCard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeleaveCardRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeleaveCardResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seepoolbooking">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seepoolbookingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seepoolbookingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeallpoolusage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seeallpoolusageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seeallpoolusageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addpoolbooking">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addpoolbookingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addpoolbookingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CustomerServiceImplService">
+
+      <wsdl:port binding="impl:CustomerServiceImplSoapBinding" name="CustomerServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:9090/MTITHotelServices/services/CustomerServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
